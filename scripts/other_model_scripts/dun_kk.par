@@ -3,26 +3,26 @@
 ## A cone of sand will evolve into a barchan
 
 # KK created this to play with the parameters of the dune model.
+# Don't use this, might be broken. 
+# Make and modify a copy of dun.par 
 
-Model = SNO
-Output_directory = ./output/
+Model = DUN
 
 Csp_file = DUN.csp
 #H = 50
-H = 50
+H = 80
 #L = 400
-L = 200
+L = 400
 #D = 200
-D = 200
+D = 50
 
 ## CSP template (genesis)
-#Csp_template = FORSTEP(height of steps, number of steps, initial thickness of loose grains, TRUE/FALSE perturb step with sine wave)
-#Csp_template = FORSTEP(20.0, 5.0, 0.1, 1)
-Csp_template = RCONE
+#Csp_template = FORSTEP(10.0, 4.0, 10.0)
+CSP_template = RCONE 
 
 ## Boundary conditions
-#Boundary = REINJECTION
-Boundary = PERIODIC
+Boundary = REINJECTION
+#Boundary = OPEN
 
 ## Initial time
 Time = 0.0
@@ -36,12 +36,6 @@ Qsat_file = real_data/PDF.data
 ## Erosion rate
 Lambda_E = 4
 
-## Erosion ratio for cohesive snow
-Lambda_F = 400
-
-## Sintering rate - PARAMETER TO VARY
-Lambda_S = 0.05
-
 ## Deposition rate
 Lambda_C = 2
 
@@ -51,9 +45,8 @@ Lambda_T = 30
 
 ## Coefficient for the vertical transport of mobile grains
 #Coef_A = 0
-#Coef_A = 0.2
+Coef_A = 0.2
 #Coef_A = 1
-Coef_A = 1.6
 
 ## Coefficient for the deposition against an obstacle
 #Coef_B = 10
