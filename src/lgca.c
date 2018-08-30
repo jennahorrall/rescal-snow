@@ -63,6 +63,8 @@ extern Pos2 *rot_map_pos;    // periodic mapping of the rotating space
 float intensite_vfor = 0.5; //instensite du forcage vertical
 #endif
 
+// Some random comment
+
 #ifdef MVT_GFOR
 float intensite_gfor = 0.001; //instensite du forcage global
 #endif
