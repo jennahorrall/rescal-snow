@@ -107,6 +107,8 @@ enum CSP_TEMPLATES {CSP_CUSTOM, CSP_SLOPE};
 enum CSP_TEMPLATES {CSP_CUSTOM};
 #endif
 
+// Here's a comment
+
 //initialization of available templates
 void init_template_list()
 {
