@@ -281,13 +281,6 @@ void genesis() {
     file = fopen(csp_template.file, "r");
     printf("file name from param file: %s\n", csp_template.file);
 
-    char ch;
-    ch = fgetc(file);
-    while (ch != EOF) {
-     printf("%c", ch);
-     ch = fgetc(file);
-    }
-
     //fclose(file);
           
   }
@@ -299,6 +292,7 @@ void genesis() {
     periode = 10.0 + (k - (((int32_t) D / 2) - lc / 2)) / 2.0 / 2.0;
     //periode += 0.5*drand48();
     for (j = 0; j < H; j++) { // height
+
       for (i = 0; i < L; i++, aux++) { //width
         di = i - Ldx;
         dk = k - Ldy; // + Ld4;
