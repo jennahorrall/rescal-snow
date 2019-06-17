@@ -1,0 +1,19 @@
+## PARAMETER FILE 
+## CUSTOM MODEL: .txt file to .par file 
+
+Model = SNO
+
+#Bin_file = TE_50_200_200.bin
+Bin_file = DUN_501_351_33.bin
+Csp_file = DUN_501_351_33.csp
+#Hpp_file = HPP.bin
+H = 33
+L = 501
+D = 351
+
+## CSP template (genesis)
+Csp_template = DEFAULT("ALTI00000_t0.data")
+
+## Boundary conditions
+Boundary = PERIODIC
+

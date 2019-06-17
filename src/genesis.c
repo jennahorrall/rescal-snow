@@ -63,7 +63,17 @@ void  srand48();
 
 float* load_surface(char *, int, int);
 
+//available CSP template types
+#if defined(MODEL_DUN) || defined(MODEL_SNO)
+enum CSP_TEMPLATES {CSP_DEFAULT, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5,
+  CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE,
+  CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
+#else
+enum CSP_TEMPLATES {CSP_CUSTOM};
+#endif
+
 void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
+
   va_list vl;
   int32_t i;
 
@@ -71,11 +81,18 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
   t_templates[nb_templates].name = name;
   t_templates[nb_templates].desc = desc;
   t_templates[nb_templates].nb_args = nb_args;
+  t_templates[nb_templates].file = NULL;
 
+  
   AllocMemory(t_templates[nb_templates].args, float, nb_args);
+
   va_start(vl, nb_args);
   for (i = 0; i < nb_args; i++) {
-    t_templates[nb_templates].args[i] = (float) va_arg(vl, double);
+    if (t_templates[nb_templates].type == CSP_DEFAULT) {
+      t_templates[nb_templates].file = (char*) va_arg(vl, const char *);
+    } else {
+      t_templates[nb_templates].args[i] = (float) va_arg(vl, double);
+    }
     //LogPrintf("t_templates[%d].args[%d] = %f\n", nb_templates, i, t_templates[nb_templates].args[i]);
   }
   va_end(vl);
@@ -100,16 +117,20 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
 //
 
 //available CSP template types
-#if defined(MODEL_DUN) || defined(MODEL_SNO)
-enum CSP_TEMPLATES {CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
-#else
-enum CSP_TEMPLATES {CSP_CUSTOM};
-#endif
+//#if defined(MODEL_DUN) || defined(MODEL_SNO)
+//enum CSP_TEMPLATES {CSP_DEFAULT, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, 
+  //CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, 
+  //CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
+//#else
+//enum CSP_TEMPLATES {CSP_CUSTOM};
+//#endif
 
 //initialization of available templates
 void init_template_list() {
   init_template(CSP_CUSTOM, "CUSTOM", "CUSTOM:\t\t\tno template", 0);
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
+
+  init_template(CSP_DEFAULT, "DEFAULT", "DEFAULT(filename=ALTI00000_t0.data)", 1, "ALTI00000_t0.data");
   init_template(CSP_LAYER, "LAYER", "LAYER(h=1.0):\t\t\tsand layer of height <h>", 1, 1.0);
   init_template(CSP_SNOWFALL, "SNOWFALL", "SNOWFALL(h=1.0):\t\t\tsand layer of height <h> with IN cells along ceiling", 1, 1.0);
   init_template(CSP_SNOWCONE, "SNOWCONE", "SNOWCONE(h=30, w=100, x=L/2, y=D/2, d=h/5):\tcone of height <h> and width <w> centered on (x,y) with a layer depth <d>", 5, 30.0, 100.0, 0.0, 0.0, 0.0);
@@ -143,7 +164,7 @@ int32_t parse_template() {
   ptr = strtok(csp_template_str, "(");
   LogPrintf("csp_template.name = %s\n", ptr);
 
-  //find and copy the full template
+
   for (i = 0; (i < nb_templates) && strcmp(ptr, t_templates[i].name); i++);
   if (i < nb_templates) {
     memcpy(&csp_template, &t_templates[i], sizeof(CSP_Template));
@@ -155,12 +176,17 @@ int32_t parse_template() {
     exit(-2);
   }
 
+
   //read template optional arguments, if any
   ptr = strtok(NULL, ",)");
   i = 0;
   while (ptr && (i < csp_template.nb_args)) {
     //LogPrintf("csp_template.args[%d] = %s\n", i, ptr);
-    csp_template.args[i++] = read_float(ptr, &err);
+    if (csp_template.type != 0) {
+      csp_template.args[i++] = read_float(ptr, &err);
+    } else {
+      err = 0;
+    }
     if (err) {
       ErrPrintf("ERROR: bad argument \"%s\" for template %s\n", ptr, csp_template.name);
       exit(-1);
@@ -245,18 +271,18 @@ void genesis() {
   Ldy = /*0.66**/((int32_t) D / 2) - 0.5; //Ld4; //(int) L/2;
   int32_t hh = (int)(H / 6); //(100/3); //8+(100/3); //(H/3);//(60/2); //H/6; //H/2;
   int32_t H0 = H - 2; //H-8
-  int32_t lc = D; //1; //400; //Ld4; //((int32_t) L / 2); //L/10; //Ld4; //largeur du couloir
-  int32_t lcone = lc * 0.6; //lc*0.6; //lc/2; //lc*0.6; //lc*2/3;  //((int32_t) L / 2)*0.8; //largeur du cone
-  int32_t hcone = ((int32_t) H / 3); //Hd2;//2*((int32_t) H / 3); //H-10; //hauteur du cone
+  int32_t lc = D; //1; //400; //Ld4; //((int32_t) L / 2); //L/10; //Ld4; //width of corridor?
+  int32_t lcone = lc * 0.6; //lc*0.6; //lc/2; //lc*0.6; //lc*2/3;  //((int32_t) L / 2)*0.8; //length of cone
+  int32_t hcone = ((int32_t) H / 3); //Hd2;//2*((int32_t) H / 3); //H-10; //height of cone
   float periode = 10.0; //periode des ondulations
 
   // initialization of the cellular space
-  for (k = 0; k < D; k++) { // profondeur
+  for (k = 0; k < D; k++) { // depth
     //periode = 10.0+(k-(((int32_t) D / 2)-lc/2))/2.0/4.0;
     periode = 10.0 + (k - (((int32_t) D / 2) - lc / 2)) / 2.0 / 2.0;
     //periode += 0.5*drand48();
-    for (j = 0; j < H; j++) { // hauteur
-      for (i = 0; i < L; i++, aux++) { //largeur
+    for (j = 0; j < H; j++) { // height
+      for (i = 0; i < L; i++, aux++) { //width
         di = i - Ldx;
         dk = k - Ldy; // + Ld4;
         rc = 0.5 * lcone * (j - (H - hcone)) / (hcone - 1);
@@ -265,7 +291,22 @@ void genesis() {
         aux->celltype = EAUC; //default state
 
         /*** GR cells ***/
-        if (csp_template.type == CSP_LAYER) {
+
+        ///DEFAULT CASE: no template (data is read in from a text file)
+        if (csp_template.type == CSP_DEFAULT) {
+        //FILE* file;
+        //open file
+        //file = fopen(csp_template.file, "r");
+        //print line
+        //char ch;
+        //while (ch = getc(file) != EOF) {
+        //    printf("%ch", ch);
+        //}
+        //fclose(file);
+           
+
+
+        } else if (csp_template.type == CSP_LAYER) {
           //CSP_LAYER: sand layer
           //format: LAYER(h)
           hh = (int)csp_template.args[0];
@@ -553,7 +594,8 @@ void genesis() {
 	  float b  = 2.0*h;      // thickness of solid layer below steps
 	  float p0 = p*L/n/20.0; // amplitude of perturbation, if any (0 if p=0)
 	  float l  = D/2.0;      // wavelength of perturbation, if any
-	  for( float step = -1.0; step < n; step = step + 1.0 ){
+	    float step = -1.0;
+            for(; step < n; step = step + 1.0 ){
             float m_s = n*h/L;
 	    float i2  = i + p0*sin(2*M_PI*k/l); //apply perturbation
 	    if ( (i2>=L*step/n) 
@@ -752,11 +794,13 @@ void usage() {
 
   printf("\nusage: \n genesis H L D [OPTIONS]\n");
   printf(" genesis -f PARAMETERS_FILE [OPTIONS]\n\n");
+  //printf(" genesis -t PARAMETERS_FILE [
 
   param_usage();
 
   printf("\nCSP TEMPLATES (%d)\n", nb_templates);
-  for (int32_t i = 0; i < nb_templates; i++) {
+  int32_t i = 0;
+  for (; i < nb_templates; i++) {
     printf("  %s\n", t_templates[i].desc);
   }
 
@@ -781,6 +825,7 @@ int32_t main(int32_t argc, char **argv) {
 
   init_list_params();
   init_template_list();
+  // look at extra 
   params_genesis();
 
   if (argc < 3) {
