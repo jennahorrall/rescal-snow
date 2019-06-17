@@ -253,7 +253,7 @@ void genesis() {
 
   aux = TE;
 
-
+// in param file the model is define as SNO
 /*****************************************************************************/
 /********************************* DUN model *********************************/
 /*****************************************************************************/
@@ -275,6 +275,23 @@ void genesis() {
   int32_t lcone = lc * 0.6; //lc*0.6; //lc/2; //lc*0.6; //lc*2/3;  //((int32_t) L / 2)*0.8; //length of cone
   int32_t hcone = ((int32_t) H / 3); //Hd2;//2*((int32_t) H / 3); //H-10; //height of cone
   float periode = 10.0; //periode des ondulations
+  FILE* file;
+
+  if (csp_template.type == CSP_DEFAULT) {
+    file = fopen(csp_template.file, "r");
+    printf("file name from param file: %s\n", csp_template.file);
+
+    char ch;
+    ch = fgetc(file);
+    while (ch != EOF) {
+     printf("%c", ch);
+     ch = fgetc(file);
+    }
+
+    //fclose(file);
+          
+  }
+
 
   // initialization of the cellular space
   for (k = 0; k < D; k++) { // depth
@@ -294,16 +311,13 @@ void genesis() {
 
         ///DEFAULT CASE: no template (data is read in from a text file)
         if (csp_template.type == CSP_DEFAULT) {
-        //FILE* file;
-        //open file
-        //file = fopen(csp_template.file, "r");
-        //print line
-        //char ch;
-        //while (ch = getc(file) != EOF) {
-        //    printf("%ch", ch);
-        //}
-        //fclose(file);
-           
+                    
+        char ch;
+        ch = fgetc(file);
+        while (ch != EOF) {
+          printf("%c", ch);
+          ch = fgetc(file);
+        }   
 
 
         } else if (csp_template.type == CSP_LAYER) {

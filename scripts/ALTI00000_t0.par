@@ -1,5 +1,5 @@
 ## PARAMETER FILE 
-## CUSTOM MODEL: .txt file to .par file 
+## DEFAULT MODEL: .txt file to .par file 
 
 Model = SNO
 
