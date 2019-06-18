@@ -1,6 +1,6 @@
 # python3 txt_to_par.py ALTI0000.txt
 # creates a .par file based on HLD in .data file
-# uses DEFAULT model in genesis.c to set up cell space
+# uses INPUT_ELEVATION template in genesis.c to set up cell space
 import sys
 
 txt_filename = sys.argv[1]
@@ -24,7 +24,7 @@ par_filename = txt_filename.split(".")[0] + ".par"
 par_file = open(par_filename, "w")
 
 par_file.write("## PARAMETER FILE \n")
-par_file.write("## DEFAULT MODEL: .txt file to .par file \n")
+par_file.write("## INPUT_ELEVATION TEMPLATE: .txt file to .par file \n")
 par_file.write("\n")
 par_file.write("Model = SNO\n")
 par_file.write("\n")
@@ -37,7 +37,7 @@ par_file.write("L = %d\n" % Length)
 par_file.write("D = %d\n" % Depth)
 par_file.write("\n")
 par_file.write("## CSP template (genesis)\n")
-par_file.write("Csp_template = DEFAULT(\"%s\")\n" % txt_filename)
+par_file.write("Csp_template = INPUT_ELEVATION(\"%s\")\n" % txt_filename)
 par_file.write("\n")
 par_file.write("## Boundary conditions\n")
 par_file.write("Boundary = PERIODIC\n")

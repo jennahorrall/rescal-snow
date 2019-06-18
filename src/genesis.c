@@ -65,7 +65,7 @@ float* load_surface(char *, int, int);
 
 //available CSP template types
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
-enum CSP_TEMPLATES {CSP_DEFAULT, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5,
+enum CSP_TEMPLATES {INPUT_ELEVATION, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5,
   CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE,
   CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
 #else
@@ -81,14 +81,14 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
   t_templates[nb_templates].name = name;
   t_templates[nb_templates].desc = desc;
   t_templates[nb_templates].nb_args = nb_args;
-  t_templates[nb_templates].file = NULL;
+  t_templates[nb_templates].file = NULL; // file param only used when reading in elevation values
 
   
   AllocMemory(t_templates[nb_templates].args, float, nb_args);
 
   va_start(vl, nb_args);
   for (i = 0; i < nb_args; i++) {
-    if (t_templates[nb_templates].type == CSP_DEFAULT) {
+    if (t_templates[nb_templates].type == INPUT_ELEVATION) {
       t_templates[nb_templates].file = (char*) va_arg(vl, const char *);
     } else {
       t_templates[nb_templates].args[i] = (float) va_arg(vl, double);
@@ -116,21 +116,13 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
 // 3) in genesis() function, write the implementation for the new CSP template.
 //
 
-//available CSP template types
-//#if defined(MODEL_DUN) || defined(MODEL_SNO)
-//enum CSP_TEMPLATES {CSP_DEFAULT, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, 
-  //CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, 
-  //CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
-//#else
-//enum CSP_TEMPLATES {CSP_CUSTOM};
-//#endif
 
 //initialization of available templates
 void init_template_list() {
   init_template(CSP_CUSTOM, "CUSTOM", "CUSTOM:\t\t\tno template", 0);
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
 
-  init_template(CSP_DEFAULT, "DEFAULT", "DEFAULT(filename=ALTI00000_t0.data)", 1, "ALTI00000_t0.data");
+  init_template(INPUT_ELEVATION, "INPUT_ELEVATION", "INPUT_ELEVATION(filename that contains elevation values)", 1, "ALTI00000_t0.data");
   init_template(CSP_LAYER, "LAYER", "LAYER(h=1.0):\t\t\tsand layer of height <h>", 1, 1.0);
   init_template(CSP_SNOWFALL, "SNOWFALL", "SNOWFALL(h=1.0):\t\t\tsand layer of height <h> with IN cells along ceiling", 1, 1.0);
   init_template(CSP_SNOWCONE, "SNOWCONE", "SNOWCONE(h=30, w=100, x=L/2, y=D/2, d=h/5):\tcone of height <h> and width <w> centered on (x,y) with a layer depth <d>", 5, 30.0, 100.0, 0.0, 0.0, 0.0);
@@ -164,7 +156,7 @@ int32_t parse_template() {
   ptr = strtok(csp_template_str, "(");
   LogPrintf("csp_template.name = %s\n", ptr);
 
-
+  //find correct template and copy it
   for (i = 0; (i < nb_templates) && strcmp(ptr, t_templates[i].name); i++);
   if (i < nb_templates) {
     memcpy(&csp_template, &t_templates[i], sizeof(CSP_Template));
@@ -277,7 +269,7 @@ void genesis() {
   float periode = 10.0; //periode des ondulations
   FILE* file;
 
-  if (csp_template.type == CSP_DEFAULT) {
+  if (csp_template.type == INPUT_ELEVATION) {
     file = fopen(csp_template.file, "r");
     printf("file name from param file: %s\n", csp_template.file);
 
@@ -304,7 +296,7 @@ void genesis() {
         /*** GR cells ***/
 
         ///DEFAULT CASE: no template (data is read in from a text file)
-        if (csp_template.type == CSP_DEFAULT) {
+        if (csp_template.type == INPUT_ELEVATION) {
                     
         char ch;
         ch = fgetc(file);
@@ -640,8 +632,10 @@ void genesis() {
           }
         }
       }
+
     }
   }
+  fclose(file);
 #endif
 }
 
@@ -756,10 +750,10 @@ void dump_par_conf(int32_t parx, int32_t pary) {
       sprintf(nom, "parallel%d.cfg", pid);
       fp = fopen(nom, "w");
       if (! fp) {
-        ErrPrintf("erreur ouverture fichier parallel.cfg\n");
+        ErrPrintf("open file parallel error.cfg\n");
         exit(-4);
       }
-      LogPrintf("creation fichier de configuration %s\n", nom);
+      LogPrintf("creation of configuration file %s\n", nom);
       fprintf(fp, "PID %d\n", pid);
       if (!pid) {
         fprintf(fp, "NN %d\n", parx * pary);
@@ -833,7 +827,8 @@ int32_t main(int32_t argc, char **argv) {
 
   init_list_params();
   init_template_list();
-  // look at extra 
+
+  // look at extra parameters 
   params_genesis();
 
   if (argc < 3) {
@@ -884,6 +879,7 @@ int32_t main(int32_t argc, char **argv) {
 
   genesis();
 
+  //dump earth??
   dump_terre(parx, pary);
 
   LogPrintf("genesis : done\n");
