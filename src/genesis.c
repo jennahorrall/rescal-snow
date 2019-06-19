@@ -173,11 +173,13 @@ int32_t parse_template() {
   ptr = strtok(NULL, ",)");
   i = 0;
   while (ptr && (i < csp_template.nb_args)) {
-    //LogPrintf("csp_template.args[%d] = %s\n", i, ptr);
-    if (csp_template.type != 0) {
+    LogPrintf("csp_template.args[%d] = %s\n", i, ptr);
+    if (csp_template.type != INPUT_ELEVATION) {
       csp_template.args[i++] = read_float(ptr, &err);
     } else {
+      csp_template.file = ptr;
       err = 0;
+      //LogPrintf("csp_template.file = %s\n", csp_template.file);
     }
     if (err) {
       ErrPrintf("ERROR: bad argument \"%s\" for template %s\n", ptr, csp_template.name);
@@ -256,7 +258,14 @@ void genesis() {
   float h, w, rc, n, hg, p;
   int32_t xmin, xmax, ymin, ymax;
   float x, y, z;
+  int32_t j_value;
+  int32_t j_found;
 
+  //int array = (int32_t*)calloc(L*D, sizeof(int32_t));
+  int32_t array_index = 0;
+  int32_t array[L*D];
+  //array_index = 0;   // a linear combination of i and k
+  //int32_t cell_index = 0; // a linear combination of i, j, and k
 //// normal mode ////
 
   Ldx = ((int32_t) L / 2) - 0.5; //((int32_t) L / 2)-0.5; //((int32_t) L / 3);//Ld4;
@@ -270,10 +279,16 @@ void genesis() {
   FILE* file;
 
   if (csp_template.type == INPUT_ELEVATION) {
-    file = fopen(csp_template.file, "r");
-    printf("file name from param file: %s\n", csp_template.file);
 
-    //fclose(file);
+    
+    file = fopen(csp_template.file, "r");
+    j_found = fscanf(file, "%d", &j_value);
+    while (j_found == 1) {
+      array[array_index] = j_value;
+      j_found = fscanf(file, " %d", &j_value);
+      array_index += 1;      
+    }
+    fclose(file);
           
   }
 
@@ -297,15 +312,13 @@ void genesis() {
 
         ///DEFAULT CASE: no template (data is read in from a text file)
         if (csp_template.type == INPUT_ELEVATION) {
-                    
-        char ch;
-        ch = fgetc(file);
-        while (ch != EOF) {
-          printf("%c", ch);
-          ch = fgetc(file);
-        }   
-
-
+            
+            array_index = i + L*k;
+            if (j < array[array_index]) {
+              //printf("Cell block i=%d,j=%d,k=%d is set to Grain \n", i, j, k);
+              aux->celltype = GR;
+            }
+          
         } else if (csp_template.type == CSP_LAYER) {
           //CSP_LAYER: sand layer
           //format: LAYER(h)
@@ -635,7 +648,6 @@ void genesis() {
 
     }
   }
-  fclose(file);
 #endif
 }
 

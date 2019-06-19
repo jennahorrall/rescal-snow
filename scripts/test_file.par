@@ -4,15 +4,15 @@
 Model = SNO
 
 #Bin_file = TE_50_200_200.bin
-Bin_file = DUN_500_350_33.bin
-Csp_file = DUN_500_350_33.csp
+Bin_file = DUN_4_2_5.bin
+Csp_file = DUN_4_2_5.csp
 #Hpp_file = HPP.bin
-H = 33
-L = 500
-D = 350
+H = 5
+L = 4
+D = 2
 
 ## CSP template (genesis)
-Csp_template = INPUT_ELEVATION(ALTI00000_t0.data)
+Csp_template = INPUT_ELEVATION(test_file.data)
 ## Boundary conditions
 Boundary = PERIODIC
 

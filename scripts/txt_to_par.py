@@ -4,7 +4,7 @@
 import sys
 
 txt_filename = sys.argv[1]
-print(txt_filename)
+#print(txt_filename)
 
 txt_file = open(txt_filename, "r")
 txt_text = txt_file.read()
@@ -13,8 +13,8 @@ txt_file.close()
 
 numbers = [int(number) for number in txt_text.split()]
 # print(numbers)
-lines = [line.split(" ") for line in txt_text.split("\n")]
-# print(lines)
+lines = [line.split() for line in txt_text.split("\n") if line.split()]
+print(lines)
 
 Length = len(lines[0])#i
 Depth = len(lines) #k
@@ -37,7 +37,7 @@ par_file.write("L = %d\n" % Length)
 par_file.write("D = %d\n" % Depth)
 par_file.write("\n")
 par_file.write("## CSP template (genesis)\n")
-par_file.write("Csp_template = INPUT_ELEVATION(\"%s\")\n" % txt_filename)
+par_file.write("Csp_template = INPUT_ELEVATION(%s)" % txt_filename)
 par_file.write("\n")
 par_file.write("## Boundary conditions\n")
 par_file.write("Boundary = PERIODIC\n")
@@ -47,5 +47,7 @@ par_file.write("\n")
 #par_file.write("\n") 
 #par_file.write("## Physical parameters file\n")
 #par_file.write("Phys_prop_file = real_data/desert_earth.prop\n")
+
+print("%s file created successfully!" % par_filename)
 
 par_file.close()
