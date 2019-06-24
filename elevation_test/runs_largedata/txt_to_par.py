@@ -3,22 +3,23 @@
 # uses INPUT_ELEVATION template in genesis.c to set up cell space
 import sys
 
-# open and store file
 txt_filename = sys.argv[1]
+#print(txt_filename)
+
 txt_file = open(txt_filename, "r")
 txt_text = txt_file.read()
+# print(txt_text)
 txt_file.close()
 
-
 numbers = [int(number) for number in txt_text.split()]
+# print(numbers)
 lines = [line.split() for line in txt_text.split("\n") if line.split()]
+#print(lines)
 
-# calculate dimensions
 Length = len(lines[0])#i
 Depth = len(lines) #k
 Height = max(numbers) #j
 
-# open and write to .par file
 par_filename = txt_filename.split(".")[0] + ".par"
 par_file = open(par_filename, "w")
 
@@ -40,14 +41,18 @@ par_file.write("Csp_template = INPUT_ELEVATION(%s)" % txt_filename)
 par_file.write("\n")
 par_file.write("## Boundary conditions\n")
 par_file.write("Boundary = PERIODIC\n")
+par_file.write("\n") 
+
+par_file.write("## Initial time\n")
+par_file.write("Time = 0.0\n")
+par_file.write("\n") 
+par_file.write("## Physical parameters file\n")
+par_file.write("Phys_prop_file = real_data/desert_earth.prop\n")
 par_file.write("\n")
 
-# write extra paramaters to file (optional)
-#par_file.write("## Initial time\n")
-#par_file.write("Time = 0.0\n")
-#par_file.write("\n") 
-#par_file.write("## Physical parameters file\n")
-#par_file.write("Phys_prop_file = real_data/desert_earth.prop\n")
+par_file.write("## Qsat data file\n")
+par_file.write("Qsat_file = real_data/PDF.data\n")
+
 
 print("%s file created successfully!" % par_filename)
 

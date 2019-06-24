@@ -88,6 +88,7 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
 
   va_start(vl, nb_args);
   for (i = 0; i < nb_args; i++) {
+    //set file name only when reading in elevation values
     if (t_templates[nb_templates].type == INPUT_ELEVATION) {
       t_templates[nb_templates].file = (char*) va_arg(vl, const char *);
     } else {
@@ -261,11 +262,6 @@ void genesis() {
   int32_t j_value;
   int32_t j_found;
 
-  //int array = (int32_t*)calloc(L*D, sizeof(int32_t));
-  int32_t array_index = 0;
-  int32_t array[L*D];
-  //array_index = 0;   // a linear combination of i and k
-  //int32_t cell_index = 0; // a linear combination of i, j, and k
 //// normal mode ////
 
   Ldx = ((int32_t) L / 2) - 0.5; //((int32_t) L / 2)-0.5; //((int32_t) L / 3);//Ld4;
@@ -275,21 +271,25 @@ void genesis() {
   int32_t lc = D; //1; //400; //Ld4; //((int32_t) L / 2); //L/10; //Ld4; //width of corridor?
   int32_t lcone = lc * 0.6; //lc*0.6; //lc/2; //lc*0.6; //lc*2/3;  //((int32_t) L / 2)*0.8; //length of cone
   int32_t hcone = ((int32_t) H / 3); //Hd2;//2*((int32_t) H / 3); //H-10; //height of cone
-  float periode = 10.0; //periode des ondulations
+  float periode = 10.0; //period of ripples
+
   FILE* file;
+  int32_t array_index = 0;
+  int32_t input_array[L*D];
 
   if (csp_template.type == INPUT_ELEVATION) {
 
-    
     file = fopen(csp_template.file, "r");
     j_found = fscanf(file, "%d", &j_value);
+    
+    //store elevation values in input_array
     while (j_found == 1) {
-      array[array_index] = j_value;
+      input_array[array_index] = j_value;
       j_found = fscanf(file, " %d", &j_value);
       array_index += 1;      
     }
+
     fclose(file);
-          
   }
 
 
@@ -310,15 +310,16 @@ void genesis() {
 
         /*** GR cells ***/
 
-        ///DEFAULT CASE: no template (data is read in from a text file)
+        ///INPUT_ELEVATION CASE: no template (elevation values read in from text file)
         if (csp_template.type == INPUT_ELEVATION) {
-            
-            array_index = i + L*k;
-            if (j < array[array_index]) {
+            //INPUT_ELEVATION CASE: elevation values read in from text file
+            //format: INPUT_ELEVATION(text file name) 
+            array_index = i + L*k; 
+            //if ((j - 2)  > (H - 2 - input_array[array_index])) {
+            if ((H - j) < input_array[array_index]) {
               //printf("Cell block i=%d,j=%d,k=%d is set to Grain \n", i, j, k);
               aux->celltype = GR;
             }
-          
         } else if (csp_template.type == CSP_LAYER) {
           //CSP_LAYER: sand layer
           //format: LAYER(h)

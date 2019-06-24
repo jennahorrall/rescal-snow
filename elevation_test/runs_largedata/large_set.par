@@ -1,0 +1,26 @@
+## PARAMETER FILE 
+## INPUT_ELEVATION TEMPLATE: .txt file to .par file 
+
+Model = SNO
+
+#Bin_file = TE_50_200_200.bin
+Bin_file = DUN_500_350_33.bin
+Csp_file = DUN_500_350_33.csp
+#Hpp_file = HPP.bin
+H = 33
+L = 500
+D = 350
+
+## CSP template (genesis)
+Csp_template = INPUT_ELEVATION(large_set.data)
+## Boundary conditions
+Boundary = PERIODIC
+
+## Initial time
+Time = 0.0
+
+## Physical parameters file
+Phys_prop_file = real_data/desert_earth.prop
+
+## Qsat data file
+Qsat_file = real_data/PDF.data

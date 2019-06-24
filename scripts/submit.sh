@@ -3,7 +3,7 @@
 # Set up this run in the correct directory
 #Configured for LL CPU not RC
 
-output_root="../new_runs3"
+output_root="../elevation_test"
 echo ${output_root}
 
 output_dirs=(${output_root}/*)
