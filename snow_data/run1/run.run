@@ -5,7 +5,7 @@
 ###################################
 
 ## remove all previously generated files
-#./clean -f
+./clean -f
 #./clean
 
 ## make an archive from the sources
@@ -33,9 +33,7 @@ fi
 PAR_FILE="sno_cone.par"
 #PAR_FILE="sno_snowfall.par"
 #PAR_FILE="sno_layer.par"
-#PAR_FILE="small_world.par"
-
-
+#PAR_FILE="snocone.par"
 echo PAR_FILE=$PAR_FILE
 
 ### number of OpenMP threads
@@ -46,14 +44,12 @@ echo OMP_NUM_THREADS=$OMP_NUM_THREADS
 GENESIS_LOG_FILE="GENESIS.log"
 RESCAL_LOG_FILE="RESCAL.log"
 
+#python3 txt_to_par.py snocone.data
+
 ## generation of binary cellular space 
 ## with python code
 #./genesis.py -f $PAR_FILE > $GENESIS_LOG_FILE
 ## or with C code
-
-# python3 txt_to_par.py small_world.data
-
-# 2000
 ./genesis -f $PAR_FILE -s 2000 > $GENESIS_LOG_FILE
 
 ## default execution with light shading, vertical layers of cells and velocity of the flow

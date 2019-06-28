@@ -89,12 +89,13 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
   va_start(vl, nb_args);
   for (i = 0; i < nb_args; i++) {
     //set file name only when reading in elevation values
-    if (t_templates[nb_templates].type == INPUT_ELEVATION) {
+    //ignore first arg (file name)
+    if (t_templates[nb_templates].type == INPUT_ELEVATION && i == 0) {
       t_templates[nb_templates].file = (char*) va_arg(vl, const char *);
     } else {
       t_templates[nb_templates].args[i] = (float) va_arg(vl, double);
     }
-    //LogPrintf("t_templates[%d].args[%d] = %f\n", nb_templates, i, t_templates[nb_templates].args[i]);
+    LogPrintf("t_templates[%d].args[%d] = %f\n", nb_templates, i, t_templates[nb_templates].args[i]);
   }
   va_end(vl);
   nb_templates++;
@@ -123,7 +124,7 @@ void init_template_list() {
   init_template(CSP_CUSTOM, "CUSTOM", "CUSTOM:\t\t\tno template", 0);
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
 
-  init_template(INPUT_ELEVATION, "INPUT_ELEVATION", "INPUT_ELEVATION(filename that contains elevation values)", 1, "ALTI00000_t0.data");
+  init_template(INPUT_ELEVATION, "INPUT_ELEVATION", "INPUT_ELEVATION(filename that contains elevation values, 1 if using in injection layer - 0 if not)", 2, "ALTI00000_t0.data", 0);
   init_template(CSP_LAYER, "LAYER", "LAYER(h=1.0):\t\t\tsand layer of height <h>", 1, 1.0);
   init_template(CSP_SNOWFALL, "SNOWFALL", "SNOWFALL(h=1.0):\t\t\tsand layer of height <h> with IN cells along ceiling", 1, 1.0);
   init_template(CSP_SNOWCONE, "SNOWCONE", "SNOWCONE(h=30, w=100, x=L/2, y=D/2, d=h/5):\tcone of height <h> and width <w> centered on (x,y) with a layer depth <d>", 5, 30.0, 100.0, 0.0, 0.0, 0.0);
@@ -174,13 +175,12 @@ int32_t parse_template() {
   ptr = strtok(NULL, ",)");
   i = 0;
   while (ptr && (i < csp_template.nb_args)) {
-    LogPrintf("csp_template.args[%d] = %s\n", i, ptr);
-    if (csp_template.type != INPUT_ELEVATION) {
+    LogPrintf("csp_template.args[%d]  = %s\n", i, ptr);
+    if (csp_template.type != INPUT_ELEVATION || i > 0) {
       csp_template.args[i++] = read_float(ptr, &err);
     } else {
-      csp_template.file = ptr;
-      err = 0;
-      //LogPrintf("csp_template.file = %s\n", csp_template.file);
+        csp_template.file = ptr;
+        i++; 
     }
     if (err) {
       ErrPrintf("ERROR: bad argument \"%s\" for template %s\n", ptr, csp_template.name);
@@ -248,7 +248,7 @@ void genesis() {
 
   aux = TE;
 
-// in param file the model is define as SNO
+
 /*****************************************************************************/
 /********************************* DUN model *********************************/
 /*****************************************************************************/
@@ -261,6 +261,7 @@ void genesis() {
   float x, y, z;
   int32_t j_value;
   int32_t j_found;
+  int32_t injection_val;
 
 //// normal mode ////
 
@@ -277,7 +278,11 @@ void genesis() {
   int32_t array_index = 0;
   int32_t input_array[L*D];
 
+  //// read integers from file and store in array ////
+
   if (csp_template.type == INPUT_ELEVATION) {
+ 
+    injection_val = csp_template.args[1];
 
     file = fopen(csp_template.file, "r");
     j_found = fscanf(file, "%d", &j_value);
@@ -288,7 +293,7 @@ void genesis() {
       j_found = fscanf(file, " %d", &j_value);
       array_index += 1;      
     }
-
+    
     fclose(file);
   }
 
@@ -298,6 +303,7 @@ void genesis() {
     //periode = 10.0+(k-(((int32_t) D / 2)-lc/2))/2.0/4.0;
     periode = 10.0 + (k - (((int32_t) D / 2) - lc / 2)) / 2.0 / 2.0;
     //periode += 0.5*drand48();
+
     for (j = 0; j < H; j++) { // height
 
       for (i = 0; i < L; i++, aux++) { //width
@@ -310,14 +316,16 @@ void genesis() {
 
         /*** GR cells ***/
 
-        ///INPUT_ELEVATION CASE: no template (elevation values read in from text file)
+        // *** INPUT_ELEVATION CASE: no template (values read in from data file) *** //
+
         if (csp_template.type == INPUT_ELEVATION) {
             //INPUT_ELEVATION CASE: elevation values read in from text file
-            //format: INPUT_ELEVATION(text file name) 
+            //format: INPUT_ELEVATION(text file name, 0 or 1 injection layer)
+            if (injection_val == 1 && j == 1) {
+              aux->celltype = IN;
+            }
             array_index = i + L*k; 
-            //if ((j - 2)  > (H - 2 - input_array[array_index])) {
             if ((H - j) < input_array[array_index]) {
-              //printf("Cell block i=%d,j=%d,k=%d is set to Grain \n", i, j, k);
               aux->celltype = GR;
             }
         } else if (csp_template.type == CSP_LAYER) {
@@ -892,7 +900,6 @@ int32_t main(int32_t argc, char **argv) {
 
   genesis();
 
-  //dump earth??
   dump_terre(parx, pary);
 
   LogPrintf("genesis : done\n");

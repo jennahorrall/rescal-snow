@@ -3,11 +3,13 @@
 # Set up this run in the correct directory
 #Configured for LL CPU not RC
 
-output_root="../elevation_test"
+# go into test directory
+output_root="../snow_data"
 echo ${output_root}
 
 output_dirs=(${output_root}/*)
 
+# "loop" through each subdirectory and start run in each
 output_dir="${output_dirs[${PMI_RANK}]}"
 cd ${output_dir}
 echo "Process ${PMI_RANK} in  ${output_dir}"

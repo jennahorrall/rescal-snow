@@ -1,19 +1,27 @@
-## PARAMETER FILE 
-## INPUT_ELEVATION TEMPLATE: .txt file to .par file 
+## PARAMETER FILE
+## High mobility DUNE model with transitions of avalanches and lattice gas
+## A cone of sand will evolve into a barchan
+
+# KK created this to play with the parameters of the dune model.
 
 Model = SNO
+Output_directory = ./output/
 
-#Bin_file = TE_50_200_200.bin
-#Bin_file = DUN_500_350_50.bin
-Csp_file = DUN_500_350_50.csp
-#Hpp_file = HPP.bin
+Csp_file = DUN.csp
+#H = 50
 H = 50
+#L = 400
 L = 500
+#D = 200
 D = 350
 
 ## CSP template (genesis)
-Csp_template = INPUT_ELEVATION(snocone.data)
+#Csp_template = FORSTEP(height of steps, number of steps, initial thickness of loose grains, TRUE/FALSE perturb step with sine wave)
+#Csp_template = FORSTEP(20.0, 5.0, 0.1, 1)
+Csp_template = RCONE
+
 ## Boundary conditions
+#Boundary = REINJECTION
 Boundary = PERIODIC
 
 ## Initial time
@@ -26,7 +34,7 @@ Phys_prop_file = real_data/desert_earth.prop
 Qsat_file = real_data/PDF.data
 
 ## Erosion rate
-Lambda_e = 4
+Lambda_E = 4
 
 ## Erosion ratio for cohesive snow
 Lambda_F = 400
@@ -38,12 +46,18 @@ Lambda_S = 0.02
 Lambda_C = 2
 
 ## Transport rate
+#Lambda_T = 6
 Lambda_T = 30
 
 ## Coefficient for the vertical transport of mobile grains
+#Coef_A = 0
+#Coef_A = 0.2
+#Coef_A = 1
 Coef_A = 1.6
 
 ## Coefficient for the deposition against an obstacle
+#Coef_B = 10
+#Coef_B = 2
 Coef_B = 1
 
 # Coefficient for the deposition behind an obstacle
@@ -57,9 +71,11 @@ Prob_link_TT = 1.0
 High_mobility = 1
 
 ## Diffusion rate
+#Lambda_D = 0.02
 Lambda_D = 0.06
 
 ## Injection rate
+#Lambda_I = 0.1
 Lambda_I = 1
 
 ## Gravity
