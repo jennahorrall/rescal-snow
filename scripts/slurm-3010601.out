@@ -1,0 +1,1772 @@
+run_parallel_rescal.msub : starting to run ReSCAL in parallel
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Looking for jobs to run under ../test_parallel_runs
+Process 2 running in  ../test_parallel_runs/tauMin1000_lambdaI0.001
+Process 9 running in  ../test_parallel_runs/tauMin300_lambdaI0.01
+Process 4 running in  ../test_parallel_runs/tauMin100_lambdaI0.001
+Process 1 running in  ../test_parallel_runs/tauMin0_lambdaI0.01
+Process 7 running in  ../test_parallel_runs/tauMin200_lambdaI0.01
+Process 0 running in  ../test_parallel_runs/tauMin0_lambdaI0.001
+Process 3 running in  ../test_parallel_runs/tauMin1000_lambdaI0.01
+Process 6 running in  ../test_parallel_runs/tauMin200_lambdaI0.001
+Process 5 running in  ../test_parallel_runs/tauMin100_lambdaI0.01
+Process 8 running in  ../test_parallel_runs/tauMin300_lambdaI0.001
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+PAR_FILE=run.par
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ERROR: Incorrect value for Csp_template, SNOWFALL
+genesis.c (164)
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+ReSCAL 1.6 (2016-10)
+SNO model - simulation of snow surface under air flow
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+format of numerical values: C 
+size of long: 8 bytes (64b)
+size of cell: 1 byte(s)
+lattice gas enabled
+support for periodic boundary conditions
+args: run.par -hm -vss -nv -info -h -dpng 10t0 -vel -dcsp 10t0 
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+
+usage: rescal PARAMETERS_FILE [OPTIONS]
+       rescal -h
+       rescal -hm
+
+GENERAL OPTIONS
+  -h 		 display usage information
+  -hm 		 display parameters of the compiled model
+  -nv 		 no window mode
+  -info 	 monitoring data every minutes
+  -dcsp <n> 	 generation of a CSP file every <n> minutes
+  -dcsp <f>t0 	 generation of a CSP file with delay in t0 unit (float value)
+  -dcsphpp <n> 	 generation of CSP and HPP files every <n> minutes
+  -dcsphpp <f>t0 	 generation of CSP and HPP files with delay in t0 unit (float value)
+  -dbin <n> 	 generation of a binary file every <n> minutes
+  -dpng <n> 	 generation of a PNG image every <n> seconds
+  -dpng <f>t0	 generation of PNG images with delay in t0 unit (float value)
+  -stop <n> 	 quit after <n> minutes
+  -stop <f>t0 	 quit after running <f> t0 in simulated time
+  -stoptime <f>t0 	 quit when simulated time reaches <f> t0
+  -q 		 quit at the end of simulation
+  -fr <n> 	 frame rate (fps)
+  -s <n> 	 random seed
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+
+GRAPHICAL OPTIONS
+  -ch <val> 	 horizontal cross section of height <val>
+  -cv0 		 centered vertical cross sections
+  -cv <a>x<o> 	 vertical cross sections at abscissa <a> and ordinate <o>
+  -lc 		 show cut lines
+  -ls <angle> 	 surface rendering with ligth source elevation = <angle> degrees
+  -al 		 height map
+  -lal 		 low height map
+  -tr <cel> 	 transparent cells of type <cel>
+  -vel 		 view flow mean velocity on a vertical plan
+  -vel2 	 view flow mean velocity and vector field on a vertical plan
+  -vss 		 view shear stress
+  -vss2 	 view renormalized shear stress between min and max thresholds
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+
+FORMAT OF PARAMETERS_FILE
+  <parameter> = <value>
+
+  General parameters:
+    Model	 name of model
+    H		 height
+    L		 length
+    D		 depth
+    Bin_file	 initial cellular space (binary file)
+    Csp_file	 initial cellular space (csp file)
+    Seed	 random seed
+    Time	 initial physical time - optional
+    Boundary	 boundary conditions (PERIODIC|OPEN|OUT|CLOSE|REINJECTION), PERIODIC by default
+  SNO model parameters:
+    Lambda_E	 erosion rate
+    Lambda_C	 deposition rate
+    Lambda_T	 transport rate
+    Lambda_D	 diffusion rate
+    Lambda_D_mob	 diffusion rate of mobile grains
+    Lambda_G	 gravitation rate
+    Lambda_I	 injection rate - optional
+    Coef_A	 coefficient for the vertical transport of mobile grains (0 by default)
+    Coef_B	 coefficient for the deposition against an obstacle (10 by default)
+    Coef_C	 coefficient for the deposition behind an obstacle (500 by default)
+    Prob_link_ET	 probability of the link between erosion and upward transport (0.5 by default)
+    Prob_link_TT	 probability of the link between upward and horizontal transport (0.5 by default)
+    High_mobility	 additional transition link for higher mobility of grains (0|1) - optional
+    Lambda_F	 Factor decrease in erosion rate if particle is sintered (3 by default)
+    Lambda_S	 Sintering rate (turns loose grains into cohesive)
+    Tau_min	 min shear stress value in the linear relationship between erosion rate and shear stress - optional
+    Tau_max	 max shear stress value in the linear relationship between erosion rate and shear stress - optional
+  Avalanches parameters:
+    Ava_mode	 mode of avalanches (NONE|SYNC|TRANS|PROPAG, SYNC by default)
+    Lambda_A	 rate of avalanches in TRANS mode
+    Lambda_A_unstable	 unstable avalanches rate in TRANS mode
+    Ava_h_lim	 height limit for avalanches (1 by default)
+    Ava_nb_cel	 number of cells falling together in SYNC mode (1 by default) - optional
+    Ava_delay	 delay between avalanches - optional
+    Ava_angle	 angle of repose (degrees) - optional
+    Ava_duration	 duration of avalanches - optional
+    Ava_angle_unstable	 unstable angle of repose (degrees) - optional
+    Ava_upwind	 enable upwind avalanches in TRANS mode (YES|NO, YES by default) - optional
+  Rotations parameters:
+    Rot_mode	 rotation mode (FULL|DISK|OVERLAP) - optional
+    Rot_angle	 rotation angle - optional
+    Rot_delay	 rotation delay - optional
+  Real-space parameters:
+    Qsat_file	 real PDF data between Qsat and tau1 - optional
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+Ava_angle = 38
+Tau_min = 200
+Lgca_delay = 1
+Boundary = OPEN
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+Ava_angle = 38
+Tau_min = 200
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+    Wind_file	 filename for wind data - optional
+    Phys_prop_file	 filename for physical parameters - optional
+  Lattice-gas parameters:
+    Use_lgca	 use lattice gas automaton for the flow (YES|NO) - YES by default
+    Rot_ncycl	 number of flow cycles without transitions after rotation - optional
+    Init_ncycl	 initial number of flow cycles without transitions - optional
+    Lgca_delay	 physical time delay between flow cycles - optional
+    Hpp_file	 initial lattice gas - optional
+    Lgca_gfor	 global forcing of the flow - optional
+    Lgca_reset	 reinitialize the flow after each rotation or translation (YES|NO) - optional
+    Lgca_speedup	 initial speedup of the stabilization of lattice gas - optional
+  Other parameters:
+    Centering_delay	 automatic centering delay - optional
+
+Please see README file for instructions (also see http://www.ipgp.fr/rescal).
+deterministic execution
+read parameters file : run.par
+Ava_angle = 38
+Tau_min = 1000
+Lgca_delay = 1
+Ava_angle = 38
+Tau_min = 100
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Ava_angle = 38
+Tau_min = 100
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1200
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.001
+Lambda_T = 1.5
+Tau_max = 1200
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.01
+Ava_angle = 38
+Tau_min = 300
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1300
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.001
+Ava_angle = 38
+Tau_min = 300
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1300
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.01
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 2000
+Lambda_S = 0
+Coef_C = 10
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1100
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1100
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.01
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.001
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.001
+Ava_angle = 38
+Ava_angle = 38
+Tau_min = 1000
+Ava_angle = 38
+Tau_min = 0
+Lgca_delay = 1
+Boundary = OPEN
+Tau_min = 0
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Lgca_delay = 1
+Boundary = OPEN
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+D = 100
+Csp_file = DUN.csp
+Coef_A = 0.1
+Coef_B = 10
+Lambda_E = 1
+Centering_delay = 0
+Ava_mode = TRANS
+WARNING: unkown parameter - Csp_template
+Lgca_speedup = 1000
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Prob_link_TT = 1.0
+WARNING: unkown parameter - Csp_params
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1000
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.01
+Phys_prop_file = real_data/sealevel_snow.prop
+H = 50
+L = 400
+High_mobility = 1
+Time = 0.0
+Ava_h_lim = 1
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 2000
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.01
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+reading CSP metadata
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+Model = SNO
+Lambda_T = 1.5
+Tau_max = 1000
+Lambda_S = 0
+Coef_C = 10
+Prob_link_ET = 0.5
+WARNING: unkown parameter - Output_directory
+Lambda_D = 0.01
+Qsat_file = real_data/PDF.data
+Lambda_F = 1
+Lambda_G = 100000
+Lambda_A = 1
+Lambda_C = 0.5
+Lambda_I = 0.001
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+reading CSP metadata
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+reading CSP metadata
+ERROR: cannot open file DUN.csp
+format.c (128)
+read_parameters : 35 parametres lus
+WARNING: parameter Bin_file not found
+WARNING: parameter Seed not found
+WARNING: parameter Lambda_D_mob not found
+WARNING: parameter Use_lgca not found
+WARNING: parameter Lambda_A_unstable not found
+WARNING: parameter Ava_nb_cel not found
+WARNING: parameter Ava_delay not found
+WARNING: parameter Ava_duration not found
+WARNING: parameter Ava_angle_unstable not found
+WARNING: parameter Ava_upwind not found
+WARNING: parameter Rot_mode not found
+WARNING: parameter Rot_angle not found
+WARNING: parameter Rot_delay not found
+WARNING: parameter Rot_ncycl not found
+WARNING: parameter Init_ncycl not found
+WARNING: parameter Wind_file not found
+WARNING: parameter Hpp_file not found
+WARNING: parameter Lgca_gfor not found
+WARNING: parameter Lgca_reset not found
+reading CSP metadata
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+ERROR: cannot open file DUN.csp
+format.c (128)
+srun: error: quartz554: tasks 0-9: Exited with exit code 252

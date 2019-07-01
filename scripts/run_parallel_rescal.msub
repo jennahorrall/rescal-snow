@@ -1,6 +1,6 @@
 #!/bin/bash
 #MSUB -q pbatch
-#MSUB -M yourname@yourserver.com
+#MSUB -M horrall1@quartz.llnl.gov
 #MSUB -l nodes=1
 #MSUB -l walltime=00:05:00
 
@@ -21,4 +21,4 @@
 
 echo "run_parallel_rescal.msub : starting to run ReSCAL in parallel"
 
-srun --nodes=1 --cpus-per-task=1 --ntasks=10 --wait=0 submit.sh
+srun --nodes=1 --cpus-per-task=1 --ntasks=3 --wait=0 submit.sh

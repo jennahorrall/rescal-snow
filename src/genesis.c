@@ -101,7 +101,7 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
 
 //available CSP template types
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
-enum CSP_TEMPLATES {CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
+enum CSP_TEMPLATES {INPUT_ELEVATION, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
 #else
 enum CSP_TEMPLATES {CSP_CUSTOM};
 #endif
@@ -110,6 +110,7 @@ enum CSP_TEMPLATES {CSP_CUSTOM};
 void init_template_list() {
   init_template(CSP_CUSTOM, "CUSTOM", "CUSTOM:\t\t\tno template", 0);
 #if defined(MODEL_DUN) || defined(MODEL_SNO)
+  init_template(INPUT_ELEVATION, "INPUT_ELEVATION", "INPUT_ELEVATION(filename with elevation values, 0 or 1 if using injection layer)", 2, "ALTI00000_t0.data", 0);
   init_template(CSP_LAYER, "LAYER", "LAYER(h=1.0):\t\t\tsand layer of height <h>", 1, 1.0);
   init_template(CSP_SNOWFALL, "SNOWFALL", "SNOWFALL(h=1.0):\t\t\tsand layer of height <h> with IN cells along ceiling", 1, 1.0);
   init_template(CSP_SNOWCONE, "SNOWCONE", "SNOWCONE(h=30, w=100, x=L/2, y=D/2, d=h/5):\tcone of height <h> and width <w> centered on (x,y) with a layer depth <d>", 5, 30.0, 100.0, 0.0, 0.0, 0.0);

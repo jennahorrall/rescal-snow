@@ -1,0 +1,19 @@
+run_parallel_rescal.msub : starting to run ReSCAL in parallel
+Looking for jobs to run under ../par_runs
+Looking for jobs to run under ../par_runs
+Looking for jobs to run under ../par_runs
+Process 0 running in  ../par_runs/snow1
+Process 1 running in  ../par_runs/snow2
+Process 2 running in  ../par_runs/snow3
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+./run.run: line 12: ./clean: No such file or directory
+PAR_FILE=snow_cone.par
+OMP_NUM_THREADS=1
+PAR_FILE=snow_cone.par
+PAR_FILE=snow_cone.par
+OMP_NUM_THREADS=1
+OMP_NUM_THREADS=1
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 3010810.0 ON quartz582 CANCELLED AT 2019-07-01T13:13:35 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 3010810 ON quartz582 CANCELLED AT 2019-07-01T13:13:35 DUE TO TIME LIMIT ***
