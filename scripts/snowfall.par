@@ -2,11 +2,11 @@
 # Written for snowfall example by KK, June 2019
  
 # Height of model domain (cells)
-H = 50
+H = 100
 # Length, longitudinal, of model domain (cells)
-L = 400
+L = 2000
 # Depth, transverse to flow, of model domain (cells)
-D = 100
+D = 400
  
 # Genesis template?
 Csp_file = DUN.csp

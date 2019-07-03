@@ -119,12 +119,6 @@ void init_template(int32_t type, char *name, char *desc, int32_t nb_args, ...) {
 // 3) in genesis() function, write the implementation for the new CSP template.
 //
 
-//available CSP template types
-//#if defined(MODEL_DUN) || defined(MODEL_SNO)
-//enum CSP_TEMPLATES {INPUT_ELEVATION, CSP_CUSTOM, CSP_LAYER, CSP_SNOWFALL,  CSP_LAYER_COL, CSP_BLOCK, CSP_CYLINDER, CSP_CONE, CSP_RCONE, CSP_SNOWCONE, CSP_CONE2, CSP_CONE3, CSP_CONE5, CSP_RCONE5, CSP_RWALL, CSP_WAVES_2D, CSP_WAVY_NS_LAYER, CSP_WAVE, CSP_TRIANGLES, CSP_SRC_DISK, CSP_SRC_DISK_CEIL, CSP_SMILEY, CSP_FORSTEP};
-//#else
-//enum CSP_TEMPLATES {CSP_CUSTOM};
-//#endif
 
 //initialization of available templates
 void init_template_list() {
@@ -185,6 +179,7 @@ int32_t parse_template() {
       csp_template.args[i++] = read_float(ptr, &err);
     } else {
       csp_template.file = ptr;
+      LogPrintf("File name from input_elevation: %s\n", csp_template.file);
       i++;
     }
     
@@ -323,6 +318,10 @@ void genesis() {
         // *** INPUT_ELEVATION CASE: no template (values read in from data file) *** //
 
         if (csp_template.type == INPUT_ELEVATION) {
+            if (input_array[array_index] >= (H / 2)) {
+              ErrPrintf("%d height in data file exceeds height (H) specified in param file. ", input_array[array_index]);
+              exit(-2);
+            } 
             //INPUT_ELEVATION CASE: elevation values read in from text file
             //format: INPUT_ELEVATION(text file name, 0 or 1 injection layer)
             if (injection_val == 1 && j == 1) {

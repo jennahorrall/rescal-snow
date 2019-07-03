@@ -62,8 +62,8 @@ class Design_a_run():
                 # Checks whether 'name' is an option in the run script
                  return (name in self.run_script.list_all())
          
-        def write(self):
-                self.run_script.write(self.directory + "/" + self.name + ".run")
+        def write(self, input_elevation_type=None, args=None):
+                self.run_script.write(self.directory + "/" + self.name + ".run", input_elevation_type, args)
                 self.parameters.write(self.directory + "/" + self.name + ".par")
 
 ##--------------------------------------------------------------------------------------
@@ -337,10 +337,10 @@ class Run_Script():
 			elif self.options[option]: # == any value except False or True
 				# -flag VALUE
 				f.write(" -" + self.__flag_options[option] + " " + self.options[option])
-		f.write("\n \n")
+		f.write("> $RESCAL_LOG_FILE\n \n")
 
 
-	def write(self, filename):
+	def write(self, filename, input_elevation_type=None, args=None):
 		with open(filename, "w") as f:
 			f.write("#!/bin/bash \n \n")
 			f.write("################## \n ## ReSCAL run script ## \n################")
@@ -358,7 +358,7 @@ class Run_Script():
 			#Linking - not optional
 			f.write("if [ ! -e genesis ]; then \n  ln -s " + self.options['rescallocation'] +  "/genesis . \nfi \n")
 			f.write("if [ ! -e rescal ]; then \n  ln -s "  + self.options['rescallocation'] + "/rescal . \nfi \n\n")
-			f.write("ln -s " + self.options['rescallocation'] + "/rescal-ui.xml . \n \n")
+			#f.write("ln -s " + self.options['rescallocation'] + "/rescal-ui.xml . \n \n")
 
 			#Parameter file
 			f.write("# ----Parameter file----\n")
@@ -374,6 +374,11 @@ class Run_Script():
 			f.write("GENESIS_LOG_FILE=\"" + self.options['genesislog'] + "\"\n")
 			f.write("RESCAL_LOG_FILE=\""  + self.options['rescallog']  + "\"\n\n")
 
+			# Run optional input_elevation scripts
+			if input_elevation_type == "gaussian": 
+				f.write("# ----Gaussian----\n")
+				f.write("python gaussian.py " + " ".join([str(i) for i in args]) + "\n\n")
+
 			# Run genesis
 			f.write("# ----Genesis----\n")
 			f.write("./genesis -f $PAR_FILE -s 2000 > $GENESIS_LOG_FILE\n\n")
@@ -382,4 +387,5 @@ class Run_Script():
 			self.__write_run_rescal(f)
 
 			# Automatic analysis
+
 
