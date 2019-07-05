@@ -3,9 +3,9 @@
 ###################################
 ## Dune simulation
 ###################################
-## KK made this script to run
-## Test case 1, with snow_cone.par
-## run with ./snow_cone.run
+## JH made this scripts to test
+## text to par file
+## 
 
 ## remove all previously generated files; -f does not ask for user responses
 #./clean -f
